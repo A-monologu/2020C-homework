@@ -1,27 +1,36 @@
-#include<iostream>
-#define M 4
-#define N 4
+#include <iostream>
 using namespace std;
-void fun(int tt[M][N], int pp[N])
+typedef struct Student
 {
-	for (int i = 0; i < M; i++)
-	{   
-		int _max = tt[0][i];
-		for(int j=0;j<N;j++)
-			if (tt[j][i] > _max)
-			{
-				_max = tt[j][i];
-			}
-		pp[i] = _max;
+	char name[10];
+	char stu_id[15];
+	int age;
+	char sex[5];
+}student;
+student* find_id(char id[], student stus[], int num)
+{
+	int flag = 0;
+	for (int i = 0; i < num; i++)
+	{
+		if (stus[i].stu_id == id) {
+			return &stus[i];
+			flag = 1;
+		}
+	}
+	if (flag == 0)
+	{
+		return NULL;
 	}
 }
-int main()
+
+int main(void)
 {
-	int arr_1[M][N], arr_2[N];
-	for (int i = 0; i < N; i++)
-		for (int j = 0; j < M; j++)
-			cin >> arr_1[i][j];
-	fun(arr_1, arr_2);
-	system("pause");
+	student person[100];
+	char id[15];
+	scanf_s("%s", &id);
+	int num;
+	scanf_s("%d", &num);
+	student* goal;
+	goal=find_id(id, person, num);
 	return 0;
 }
