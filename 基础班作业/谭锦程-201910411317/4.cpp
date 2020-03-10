@@ -1,29 +1,22 @@
 #include <iostream>
 using namespace std;
 int main()
-{   
-	int flag = 0;
-	cout << "请输入一个数：";
-	float n;
-	cin >> n;
-	int count = 0;
-	while(n > 10) {
-		n = n / 10;
-		count++;
-		flag = 1;
-	}
-	if (flag == 1) {
-		cout << n << "e" << count << endl;
-	}
-	while (n < 1)
-	{
-		n = n * 10;
-		count++;
-	}
-	if (flag == 0) {
-		cout << n << "e-" << count << endl;
-	}
+{
+	cout << "请输入秒数:____";
+	long sec;
+	cin >> sec;
+	const int _sec = 60;
+	const int _min = 60;
+	const int _h = 24;
+	int s, d, h, min;
+	s = sec % _sec;
+	int all;
+	all = sec / _sec;
+	min = all % _min;
+	all = all / _min;
+	h = all % _h;
+	d = all / _h;
+	cout << sec << " seconds = " << d << " days, " << h << " hours, " << min << " minutes, " << s << " seconds" << endl;
 	system("pause");
 	return 0;
-
 }

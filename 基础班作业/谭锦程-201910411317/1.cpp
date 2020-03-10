@@ -1,35 +1,17 @@
 #include <iostream>
 using namespace std;
-double jiecheng(int n);
-int main(void)
+int main()
 {
-	int n;
-	int i = 1;
-	cout << "需要cos(X)的多少项：";
-	cin >> n;
-	if (i >= 1) {
-		cout << "1";
-			i++;
-	}
-	for (; i<=n; i++)
-	{
-		if (i % 2 == 0) {
-			cout << "-x" << i << "/" << jiecheng(i);
-		}
-		if (i % 2 == 1) {
-			cout << "+x" << i << "/" << jiecheng(i);
-		}
-	}
+	const int c = 12;
+	int height;
+	cout << "输入自己的身高（英寸为单位)_";
+	cin >> height;
+	int a, b;
+	float d;
+	a = height / c;
+	b = height % c;
+	d = (b * 1.0) / (c*1.0);
+	cout << "你身高转换为英尺为:" << a << endl;
 	system("pause");
 	return 0;
-}
-double jiecheng(int n)
-{   
-	double all = 1;
-	int i = 1;
-	for (; i<=n; i++)
-	{
-		all = all* i;
-	}
-	return all;
 }
